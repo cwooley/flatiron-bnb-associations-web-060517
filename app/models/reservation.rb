@@ -5,7 +5,7 @@ class Reservation < ActiveRecord::Base
   # before_create :make_date
   # before_validation :make_date
   # before_save :make_date
-  after_create :give_to_guest, :give_to_host, :make_date
+  after_create :give_to_guest, :give_to_host
 
   def give_to_guest
     self.guest.reservations << self
@@ -15,11 +15,11 @@ class Reservation < ActiveRecord::Base
     self.listing.host.reservations << self
   end
 
-  def make_date
-    # binding.pry
-    self.checkin = Date.parse(self.checkin)
-    self.checkout = Date.parse(self.checkout)
-  end
+  # def make_date
+  #   binding.pry
+  #   self.checkin = Date.parse(self.checkin)
+  #   self.checkout = Date.parse(self.checkout)
+  # end
 
 
 end
