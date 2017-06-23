@@ -53,10 +53,12 @@ describe User do
 
       it 'has many trips' do
         expect(logan.trips).to include(reservation)
+
       end
 
 
       it 'has written many reviews' do
+
         expect(logan.reviews).to include(review)
       end
     end
